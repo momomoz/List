@@ -1,0 +1,22 @@
+body {
+    background-color: #3a3e41;
+    margin: 100px;
+}
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#inp {
+    margin: 40px auto;  
+    width: 77%;
+}
+
+#btn {
+    margin: 30px auto;  
+}
+
+#list {
+    color: white;
+}
