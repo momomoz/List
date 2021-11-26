@@ -1,0 +1,250 @@
+*::selection{
+    color: #fff;
+    background-color: #ffc815;
+}
+*{
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+body {
+    background-color: #3a3e41;
+    margin: 0;
+    color: #707070;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+}
+
+.block {
+    background-color: #ddd;
+    width: 450px;
+    height: 450px;
+    padding: 15px;
+    margin: 10px 5%;
+    border-radius: 10px;
+}
+
+
+.btn {
+    border: 0;
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px;    
+    min-width: 100px;
+    border-radius: 10px;
+    background-color: #ffc400;
+    color: #fff;
+}
+
+.btn:hover {
+    transition: background-color 0.2s linear;
+    background-color: #ffae00;
+}
+
+
+label {
+    padding: 10px;
+    margin: 10px;
+    color: #707070;
+}
+
+input, button {
+    color: #707070;
+}
+
+input[type="checkbox"]:checked,
+input[type="checkbox"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+input[type="checkbox"]:checked+.label,
+input[type="checkbox"]:not(:checked)+.label {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    line-height: 12px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked+.label:before,
+input[type="checkbox"]:not(:checked)+.label:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+}
+
+input[type="checkbox"]:checked+.label:before,
+input[type="checkbox"]:not(:checked)+.label:before {
+    border-radius: 2px;
+}
+
+input[type="checkbox"]:checked+.label:after,
+input[type="checkbox"]:not(:checked)+.label:after {
+    content: "";
+    position: absolute;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked+.label:after,
+input[type="checkbox"]:not(:checked)+.label:after {
+    left: 13px;
+    top: 14px;
+    width: 10px;
+    height: 5px;
+    border-radius: 1px;
+    border-left: 4px solid #FFDD73;
+    border-bottom: 4px solid #FFDD73;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:not(:checked)+.label:after {
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked+.label:after {
+    opacity: 1;
+    transition: all 0.2s ease;
+}
+
+h4 {
+    cursor: default;
+    font-size: 30px;
+    padding: 10px;
+    margin: 10px;
+    color: #fff;
+    text-shadow: 3px 3px 0px #e9b200;
+}
+
+a {
+    color: #e9b200;
+    text-decoration: none;
+}
+
+input[type=text], input[type=email], input[type=password] {
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+}
+
+input[type=text]:hover, input[type=email]:hover, input[type=password]:hover, input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
+    outline: 0;
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.5s;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row:last-child {
+    padding: 0 10px;
+}
+
+#first {
+    text-align: center;
+}
+
+#rules {
+    font-size: 12px;
+}
+
+
+#all {
+    padding: 30px;
+}
+
+.regis {
+    float: left;
+    padding: 36px;
+    margin: 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: lightsteelblue;
+}
+
+.login {
+    float: right;
+    margin: 62px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 36px;
+    background-color: rgb(222, 208, 176);
+}
+
+#first {
+    text-align: center;
+    background-color: #9d8b50;
+    height: 0px;
+    padding: 2%;
+    border-bottom: 2px solid #38494f;
+    color: white;
+}
+
+
+
+/*-------------АДАПТИВНОСТЬ-----------*/
+
+@media (max-width: 1200px) {
+    .block{
+        margin: 10px 1%;
+    }
+}
+@media (max-width: 1000px) {
+    .block{
+        width: 320px;
+        height: auto;
+    }
+    input[type=text], input[type=email], input[type=password],h4,label, .btn  {
+        margin: 5px;
+    }
+    input[type=text], input[type=email], input[type=password]{
+        width: 200px;
+    }
+}
+@media (max-width: 768px) {
+    .container{
+        display: grid;
+    }
+}
+@media (max-width: 375px) {
+    .block{
+        width: 250px;
+        height: auto;
+    }
+    input[type=text], input[type=email], input[type=password]{
+        width: 150px;
+    }
+    input[type=text], input[type=email], input[type=password],h4,label, .btn  {
+        margin: 5px 0;
+    }
+    body,input[type=text], input[type=email], input[type=password],label, .btn {
+        font-size: x-small;
+    }
+    h4{
+        font-size: 16px;
+        padding:0 10px ;
+    }
+}
