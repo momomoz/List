@@ -1,0 +1,50 @@
+body{
+    background-color: rgb(253, 165, 0);;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding: 15px;
+}
+
+.add_block{
+    width: 300px;
+    height: 200px;
+    background-color: silver;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 0px;
+    margin-left: 50px;
+    /* display: flex;
+    align-items: center; */
+}
+
+/* .white_block{
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 10px;
+} */
+
+.center{
+    margin-left: 85px;
+}
+
+.btn{
+    margin-left: 45px;
+}
+
+.myBtn{
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    font-size: 100px;
+}
+
+.add{
+    display: flex;
+    justify-content: start;
+
+}
