@@ -83,4 +83,6 @@ btnSecond.addEventListener('click', () => {
             window.location.href = "main.html"
         }
     })
+
+    location.href = "first.html"
 })
