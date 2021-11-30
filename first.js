@@ -27,10 +27,12 @@ function completeItem(value){
     let bigArray = JSON.parse(localStorage.getItem("bigArray"));
     for (let i = 0; i <= bigArray.length; i++) {
         if (bigArray[i].name == value){
+            localStorage.setItem("currentListIndex", i);
             location.href = "index.html"
             break;
         }
     }
+    
 
     localStorage.setItem('bigArray', JSON.stringify(bigArray));
     // location.reload();
@@ -47,9 +49,7 @@ btn.addEventListener('click', () => {
                         <button class="button" onclick="deleteItem('${a}')" id="button${number}">
                             <img src="./img/red-cross-md_0.png" width="35px" alt="">
                         </button>
-                        
                     </div>
-                    
                 </div>
                 <h2 class="center">${a}</h2>
             </div>
@@ -59,7 +59,7 @@ btn.addEventListener('click', () => {
     let Object = {
         name: a,
         item:[{
-            date: arrayAccount
+            date: []
         }]
     }
 

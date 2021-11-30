@@ -3,11 +3,16 @@ let addBtn = document.querySelector("#add_btn");
 let number = 0;
 let list = $(".list");
 
+let currentListIndex = JSON.parse(localStorage.getItem("currentListIndex"));
+console.log(currentListIndex);
+
 
 let backBtn = document.querySelector(".back");
 
 let arrayAccount = JSON.parse(localStorage.getItem("arrayAccount"));
+let bigArray = JSON.parse(localStorage.getItem("bigArray"));
 
+console.log(bigArray);
 
 
 
@@ -20,19 +25,19 @@ backBtn.addEventListener('click', () => {
 
 function completeItem(value){    
     // console.log(value)
-    let arrayAccount = JSON.parse(localStorage.getItem("arrayAccount"));
+    let bigArray = JSON.parse(localStorage.getItem("bigArray"));
     // console.log(arrayAccount)
-    for (let i = 0; i < arrayAccount.length; i++) {
-        if (arrayAccount[i].product == value) {
-            arrayAccount[i].dell = false;
+    for (let i = 0; i < bigArray[currentListIndex].item[0].date.length; i++) {
+        if (bigArray[currentListIndex].item[0].date[i].product == value) {
+            bigArray[currentListIndex].item[0].date[i].dell = false;
             
             break;
         }
         
     }
 
-    for(let i = 0; i < arrayAccount.length; i++){
-        if(arrayAccount[i].dell === false){
+    for(let i = 0; i < bigArray[currentListIndex].item[0].date.length; i++){
+        if(bigArray[currentListIndex].item[0].date[i].dell === false){
             // console.log('asd');
             // list.append(
             //     `
@@ -48,29 +53,29 @@ function completeItem(value){
             //         </div>
             //     </div>
             //     `);
-                console.log(arrayAccount[i].product)
+                console.log(bigArray[currentListIndex].item[0].date[i].product)
         }
     }
 
     
-    localStorage.setItem('arrayAccount', JSON.stringify(arrayAccount));
+    localStorage.setItem('bigArray', JSON.stringify(bigArray));
     // console.log(JSON.stringify(arrayAccount))
-    location.reload();
+    // location.reload();
 }
 
 
 
 function deleteItem(value){
     console.log(value)
-    let arrayAccount = JSON.parse(localStorage.getItem("arrayAccount"));
-    for (let i = 0; i < arrayAccount.length; i++) {
-        if (arrayAccount[i].product == value) {
-            arrayAccount.splice(i, 1);
+    let bigArray = JSON.parse(localStorage.getItem("bigArray"));
+    for (let i = 0; i < bigArray[currentListIndex].item[0].date.length; i++) {
+        if (bigArray[currentListIndex].item[0].date[i].product == value) {
+            bigArray[currentListIndex].item[0].date.splice(i, 1);
             break;
         }
     }
 
-    localStorage.setItem('arrayAccount', JSON.stringify(arrayAccount));
+    localStorage.setItem('bigArray', JSON.stringify(bigArray));
     location.reload();
 }
 
@@ -131,31 +136,33 @@ addBtn.addEventListener('click', () => {
         dell: true//
     }
 
-    let arrayAccount = JSON.parse(localStorage.getItem("arrayAccount"));
-    if (arrayAccount === null) {
-        arrayAccount = [];
+    let bigArray = JSON.parse(localStorage.getItem("bigArray"));
+    if(bigArray === null){
+        bigArray = [];
     }
 
-    arrayAccount.push(Product);
-    localStorage.setItem("arrayAccount", JSON.stringify(arrayAccount));
-    console.log(arrayAccount);
+    bigArray[currentListIndex].item[0].date.push(Product)
+    // arrayAccount.push(Product);
+    localStorage.setItem("bigArray", JSON.stringify(bigArray));
+    console.log("added")
+    console.log(bigArray);
 });
 
 
 
 function first() {
     
-    for (let i = 0; i < arrayAccount.length; i++){
-        if(arrayAccount[i].dell === true){
+    for (let i = 0; i < bigArray[currentListIndex].item[0].date.length; i++){
+        if(bigArray[currentListIndex].item[0].date[i].dell === true){
             list.append(
                 `<div class="list_block" id="list_block_${number}">
-                    <h2>- ${arrayAccount[i].product}</h2>
+                    <h2>- ${bigArray[currentListIndex].item[0].date[i].product}</h2>
 
                     <div class="click">
-                        <button class="completed_btn" onclick="completeItem('${arrayAccount[i].product}')" id="completed_btn_${number}">
+                        <button class="completed_btn" onclick="completeItem('${bigArray[currentListIndex].item[0].date[i].product}')" id="completed_btn_${number}">
                             <img src="./img/unnamed.png" width="30px" alt="">
                         </button>
-                        <button class="croos_btn" onclick="deleteItem('${arrayAccount[i].product}')" id="croos_btn_${number}">
+                        <button class="croos_btn" onclick="deleteItem('${bigArray[currentListIndex].item[0].date[i].product}')" id="croos_btn_${number}">
                             <img src="./img/red-cross-md_0.png" width="30px" height="30px" alt="">
                         </button>
                     </div>
@@ -164,12 +171,12 @@ function first() {
         } else{
             list.append(`
             <div class="list_block" id="list_block_${number}">
-                <h2><del>- ${arrayAccount[i].product}</del></h2>
+                <h2><del>- ${bigArray[currentListIndex].item[0].date[i].product}</del></h2>
                 <div class="click">
-                    <button class="completed_btn" onclick="completeItem('${arrayAccount[i].product}')" id="completed_btn_${number}">
+                    <button class="completed_btn" onclick="completeItem('${bigArray[currentListIndex].item[0].date[i].product}')" id="completed_btn_${number}">
                         <img src="./img/unnamed.png" width="30px" alt="">
                     </button>
-                    <button class="croos_btn" onclick="deleteItem('${arrayAccount[i].product}')" id="croos_btn_${number}">
+                    <button class="croos_btn" onclick="deleteItem('${bigArray[currentListIndex].item[0].date[i].product}')" id="croos_btn_${number}">
                         <img src="./img/red-cross-md_0.png" width="30px" height="30px" alt="">
                     </button>
                 </div>
